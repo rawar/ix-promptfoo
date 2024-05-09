@@ -66,3 +66,7 @@ If nothing else is set, promptfoo uses a cache to avoid executing the same promp
 ```
 $ npx promptfoo npx promptfoo clean cache
 ```
+
+### Test RAG
+
+To run the RAG evaluation ```promptfooconfig_rag.yaml``` you need to initialize a Chroma vector database with the content of [twenty-thousand-leagues-under-the-sea.txt](https://www.gutenberg.org/cache/epub/164/pg164.txt) from project Gutenberg. Therefor the ```insert_vdb.py``` script is implemented. If you would like to save some cents yo can use the existing vector database with all embeddings.
