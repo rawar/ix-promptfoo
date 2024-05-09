@@ -1,6 +1,12 @@
 # ix-promptfoo
 
-This repository contains examples of [promptfoo](https://promptfoo.dev). To run this, promptfoo, Python >= 3.9 and the Python framework [langchain](https://python.langchain.com/v0.1/docs/get_started/introduction/) must be installed.
+This repository contains examples of [promptfoo](https://promptfoo.dev). To run this, promptfoo, Python >= 3.9 and the Python framework [langchain](https://python.langchain.com/v0.1/docs/get_started/introduction/) must be installed. To use OpenAI's GPT-3.5_turbo, you need a valid API key. Please export the key into your environment for example with
+
+```
+export OPENAI_API_KEY=sg......
+```
+
+To use local models from [Ollama](https://ollama.com), you need to install Ollama and its [models](https://ollama.com/library) first.
 
 ### Install promotfoo
 
@@ -70,3 +76,11 @@ $ npx promptfoo npx promptfoo clean cache
 ### Test RAG
 
 To run the RAG evaluation ```promptfooconfig_rag.yaml``` you need to initialize a Chroma vector database with the content of [twenty-thousand-leagues-under-the-sea.txt](https://www.gutenberg.org/cache/epub/164/pg164.txt) from project Gutenberg. Therefor the ```insert_vdb.py``` script is implemented. If you would like to save some cents yo can use the existing vector database with all embeddings.
+
+### Test Hugging Face classifiers
+
+The promptfoo example ```promptfooconfig_classifier.yaml``` is using the [text classifiers from Hugging Face](https://huggingface.co/docs/transformers/tasks/sequence_classification). To use this, you need to export a valid Hugging Face API token like
+
+```
+$ export HF_API_TOKEN=.....
+```
