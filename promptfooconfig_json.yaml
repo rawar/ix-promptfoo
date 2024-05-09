@@ -1,0 +1,15 @@
+description: 'Prompt Evaluation for JSON output'
+
+prompts:
+  - recipe-prompt.txt
+  
+providers:
+  - openai:gpt-3.5-turbo
+
+tests:
+  - vars:
+      dish: butter chicken
+    assert:
+      - type: is-json
+        value:
+          required: [ingredients, instructions]

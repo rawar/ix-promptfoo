@@ -1,0 +1,2 @@
+return a recipe for {{dish}}. Provide your response as a JSON object with the following schema:
+{'dish': {{dish}}, 'ingredients': ['', '', ...], 'instructions': ['', '', ... ]}

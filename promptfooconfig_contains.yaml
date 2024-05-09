@@ -1,0 +1,24 @@
+description: 'Prompt Evaluation for Sentiment'
+
+prompts:
+  - "Classify the sentiment of this text: {{text}}"
+  
+providers:
+  - openai:gpt-3.5-turbo
+
+tests:
+  - vars:
+      text: I hate the movie Batman & Robin, it was terrible!
+    assert:
+      - type: equals
+        value: 'negative' 
+  - vars:
+      text: I like ice cream very much!    
+    assert:
+      - type: contains
+        value: 'positive'
+  - vars:
+      text: I love reading the iX every month.
+    assert:
+      - type: icontains
+        value: 'positive'    

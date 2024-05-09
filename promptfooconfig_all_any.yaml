@@ -1,0 +1,28 @@
+description: 'Prompt Evaluation for contains any'
+
+prompts:
+  - "Why is {{question}}"
+  
+providers:
+  - openai:gpt-3.5-turbo
+
+tests:
+  - vars:
+      question: the sky blue?
+    assert:
+      - type: icontains-any
+        value:
+          - 'Clouds'
+          - 'Pollution' 
+          - 'Sun Position'
+          - 'Scatter'
+  - vars:
+      question: the sky blue?
+    assert:
+      - type: icontains-all
+        value:
+          - 'Clouds'
+          - 'Pollution' 
+          - 'Sun Position'
+          - 'Scatter'
+  

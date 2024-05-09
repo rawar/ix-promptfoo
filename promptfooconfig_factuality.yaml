@@ -1,0 +1,14 @@
+description: 'Prompt Evaluation for Model-graded metrics'
+
+prompts:
+  - "What is the capital of {{country}}"
+  
+providers:
+  - openai:gpt-3.5-turbo
+
+tests:
+  - vars:
+      country: Germany
+    assert:
+      - type: factuality
+        value: Berlin is the capital of Germany

@@ -1,0 +1,19 @@
+description: 'Prompt Evaluation for similarity'
+
+prompts:
+  - translator-prompt.txt
+  
+providers:
+  - openai:gpt-3.5-turbo      
+
+tests:
+  - description: Translate Herzlichen Glückwunsch zum Geburtstag
+    vars:
+      language: Italien
+      input: Herzlichen Glückwunsch zum Geburtstag
+    assert:
+      - type: similar
+        value: Buon compleanno
+        threshold: 0.70
+        
+        
