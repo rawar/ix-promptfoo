@@ -1,0 +1,35 @@
+description: 'Prompt Evaluation for vector databases (RAG) agains world knowledge'
+
+prompts: ['{{ query }}']  
+providers: 
+  - id: 'python:retriever.py'
+    config:
+      pythonExecutable: .venv/bin/python3
+  - id: openai:gpt-3.5-turbo
+
+tests:
+    - vars:
+        query: What is the name of Captain Nemo's submarine?
+      assert:
+        - type: icontains
+          value: 'Nautilus'
+    - vars:
+        query: What passengers are on Captain Nemo's Nautilus?
+      assert:
+        - type: icontains-all
+          value: ['Pierre Aronnax', 'Conseil', 'Ned Land']
+    - vars:
+        query: How can Professor Aronnax, Ned Land and Conseil escape from the Nautilus?
+      assert:
+        - type: similar
+          value: They sneak onto a separate boat and make their escape from the submarine
+          threshold: 0.50
+    - vars:
+        query: What do the passengers from the Nautilus eat for dinner?
+      assert:
+        - type: icontains-any
+          value: ['sea cucumber', 'seaweed', 'undersea plants']
+      
+      
+        
+        
